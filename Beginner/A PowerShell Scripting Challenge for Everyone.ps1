@@ -10,7 +10,8 @@ Intermediate and Advanced versions of this challenge will be placed into their r
 
 #>
 
-function Get-FileInfo {
+function Get-FileInfo 
+{
 
     param ( [string]$Path )
 
