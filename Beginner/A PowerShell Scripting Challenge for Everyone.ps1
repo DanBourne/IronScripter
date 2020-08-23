@@ -14,14 +14,12 @@ function Get-FileInfo {
 
     param ( [string]$Path )
 
-    #Get file information into the $Files variable
-$Files = Get-ChildItem $Path -Recurse -File
+        #Get file information into the $Files variable
+        $Files = Get-ChildItem $Path -Recurse -File
 
-#Measure the Sum and Average of the length property
-$Files | Measure-Object -Property Length -Sum -Average| `
+        #Measure the Sum and Average of the length property
+        $Files | Measure-Object -Property Length -Sum -Average| `
 
-#Select Objects for output
-Select-Object @{n= 'Computername'; e = {$env:COMPUTERNAME}}, Count, Sum, Average, @{n = 'Rundate'; e = {Get-Date}}
-
-
+        #Select Objects for output
+        Select-Object @{n= 'Computername'; e = {$env:COMPUTERNAME}}, Count, Sum, Average, @{n = 'Rundate'; e = {Get-Date}}
 }
