@@ -24,5 +24,3 @@ function Get-FileInfo
         #Select Objects for output
         Select-Object @{n= 'Computername'; e={$env:COMPUTERNAME}}, Count, Sum, Average, @{n= 'Rundate'; e={Get-Date}}
 }
-
-Get-FileInfo -Path C:\Temp

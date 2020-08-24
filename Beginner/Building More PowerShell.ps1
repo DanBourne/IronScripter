@@ -36,5 +36,3 @@ function Get-FileInfo
 }
 
 Set-Alias -Name 'GFI' -Value Get-FileInfo
-
-gfi C:\Temp
