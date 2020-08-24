@@ -13,7 +13,7 @@ Intermediate and Advanced versions of this challenge will be placed into their r
 function Get-FileInfo 
 {
 
-    param ( [string]$Path )
+    param ([string]$Path)
 
         #Get file information into the $Files variable
         $Files = Get-ChildItem $Path -Recurse -File
@@ -22,5 +22,7 @@ function Get-FileInfo
         $Files | Measure-Object -Property Length -Sum -Average| `
 
         #Select Objects for output
-        Select-Object @{n= 'Computername'; e = {$env:COMPUTERNAME}}, Count, Sum, Average, @{n = 'Rundate'; e = {Get-Date}}
+        Select-Object @{n= 'Computername'; e={$env:COMPUTERNAME}}, Count, Sum, Average, @{n= 'Rundate'; e={Get-Date}}
 }
+
+Get-FileInfo -Path C:\Temp

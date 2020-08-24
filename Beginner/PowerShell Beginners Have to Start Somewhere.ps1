@@ -14,6 +14,6 @@ $Files = Get-ChildItem C:\Temp -Recurse -File
 $Files | Measure-Object -Property Length -Sum -Average| `
 
 #Select Objects for output
-Select-Object @{n= 'Computername'; e = {$env:COMPUTERNAME}}, Count, Sum, Average, @{n = 'Rundate'; e = {Get-Date}}
+Select-Object @{ n = 'Computername'; e = {$env:COMPUTERNAME}}, Count, Sum, Average, @{ n = 'Rundate'; e = {Get-Date}}
 
 
