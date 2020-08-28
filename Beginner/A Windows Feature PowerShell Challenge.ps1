@@ -20,7 +20,7 @@ function Set-WindowsOptionalFeature
             [switch] $Disable
        )
 
-            if ($Enable.IsPresent)
+            if     ($Enable.IsPresent)
             {
                 Enable-WindowsOptionalFeature -Online -FeatureName $FeatureName
             }
@@ -32,20 +32,9 @@ function Set-WindowsOptionalFeature
             {
                 Write-Error -Message "The -Enable or -Disable switch needs to be selected"
             }
-            
-            
-            {
-
-
-            }
-
-            
-
-    
-
 }
 
-Set-WindowsOptionalFeature WindowsMediaPlayer -Enable
+
 
 
 
