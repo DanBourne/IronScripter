@@ -18,7 +18,7 @@ The Chairman has identified a set of tasks for each skill level. Of course, you 
 Note: This is the beginner part of this challenge only. 
 Intermediate and Advanced versions of this challenge will be placed into their respective folders.
 #>
-
+Set-Alias -Name 'GFI' -Value Get-FileInfo
 function Get-FileInfo 
 {
 
@@ -31,8 +31,7 @@ function Get-FileInfo
         $Files | Measure-Object -Property Length -Sum -Average | `
         
 
-        #Select Objects for output, rounding SUM value and converting to KB 
-        Select-Object @{ n = 'Computername'; e = {$env:COMPUTERNAME}}, Count, @{n= 'Sum KB'; e = {[math]::round($_.Sum / 1KB)}}, Average, @{ n = 'Rundate'; e = {Get-Date}}
-}
+        #Select Objects for output, rounding $Files.Sum value and converting to KB 
+        Select-Object @{ n = 'Computername'; e = {$env:COMPUTERNAME}}, Count, @{n = 'Sum KB' ; e = {[math]::round($_.Sum / 1KB, 2)}}, Average, @{ n = 'Rundate'; e = {Get-Date}}
 
-Set-Alias -Name 'GFI' -Value Get-FileInfo
+}
