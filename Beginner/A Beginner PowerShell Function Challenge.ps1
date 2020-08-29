@@ -27,6 +27,3 @@ function Convertto-Celcius {
 
     Write-Host "$Farenheit Farenheit is equal to $Celcius Celcius"
 }
-
-
-
