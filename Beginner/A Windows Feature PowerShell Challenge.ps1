@@ -33,8 +33,3 @@ function Set-WindowsOptionalFeature
                 Write-Error -Message "The -Enable or -Disable switch needs to be selected"
             }
 }
-
-
-
-
-
