@@ -23,10 +23,11 @@ Once you have that, then you might see if you can turn it into a parameterized s
 
 $IP = Get-CimInstance Win32_NetworkAdapterConfiguration -ComputerName $env:COMPUTERNAME | Where-Object -FilterScript {$_.DNSDomain -ne $null} 
 
-    Get-NetTCPConnection -State Listen,Established -LocalAddress $IP.IPAddress |
+    
+Get-NetTCPConnection -State Listen,Established -LocalAddress $IP.IPAddress |
 
-        Select-Object -Property @{n = "Computer Name" ; e = {$env:COMPUTERNAME}}, LocalAddress, LocalPort, RemoteAddress, RemotePort, State,
+    Select-Object -Property @{n = "Computer Name" ; e = {$env:COMPUTERNAME}}, LocalAddress, LocalPort, RemoteAddress, RemotePort, State,
 
-        OwningProcess, CreationTime, @{n = "Process_Age(m)"; e = {New-TimeSpan -Start $($_.CreationTime) -End $(Get-Date) | Select-Object -ExpandProperty TotalMinutes}} |
+    OwningProcess, CreationTime, @{n = "Process_Age(m)"; e = {New-TimeSpan -Start $($_.CreationTime) -End $(Get-Date) | Select-Object -ExpandProperty TotalMinutes}} |
 
-            Format-Table
+    Format-Table
